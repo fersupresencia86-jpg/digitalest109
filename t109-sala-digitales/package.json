@@ -1,0 +1,17 @@
+{
+  "name": "sala-digitales-t109",
+  "version": "1.0.0",
+  "description": "Bitacora semanal de actividades - Sala de Digitales T109",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node db/seed.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "multer": "^2.0.1"
+  }
+}

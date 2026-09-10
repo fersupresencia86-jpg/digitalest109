@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel de administración · T109</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">
+      <span class="code">T109</span>
+      <span class="name">Sala de Digitales · Administración</span>
+    </div>
+    <div class="who">
+      <span class="pill" id="whoPill">…</span>
+      <button class="btn-link" id="changePassBtn">Cambiar contraseña</button>
+      <button class="btn-link" id="logoutBtn">Salir</button>
+    </div>
+  </div>
+
+  <div class="main" style="max-width: 1200px; margin: 0 auto;">
+    <div class="card">
+      <h2>Actividades por semana</h2>
+      <p class="desc">Revisa lo que cada integrante subió, filtra por área o por persona.</p>
+
+      <div class="filters">
+        <div class="field">
+          <label for="filterArea">Área</label>
+          <select id="filterArea"><option value="">Todas</option></select>
+        </div>
+        <div class="field">
+          <label for="filterUser">Integrante</label>
+          <select id="filterUser"><option value="">Todos</option></select>
+        </div>
+      </div>
+
+      <div class="week-nav">
+        <button id="prevWeek">←</button>
+        <span class="label" id="weekLabel">…</span>
+        <button id="nextWeek">→</button>
+        <button id="todayWeek" style="margin-left:6px;">Esta semana</button>
+      </div>
+
+      <div class="calendar" id="calendar"></div>
+    </div>
+  </div>
+
+  <!-- Modal detalle actividad -->
+  <div class="modal-backdrop" id="detailBackdrop">
+    <div class="modal" id="detailModal"></div>
+  </div>
+
+  <!-- Modal cambiar contraseña -->
+  <div class="modal-backdrop" id="pwBackdrop">
+    <div class="modal">
+      <button class="close" id="pwClose">✕</button>
+      <h2>Cambiar contraseña</h2>
+      <div class="error-box" id="pwErr"></div>
+      <div class="ok-box" id="pwOk">Contraseña actualizada.</div>
+      <form id="pwForm">
+        <div class="field">
+          <label for="current_password">Contraseña actual</label>
+          <input id="current_password" type="password" required>
+        </div>
+        <div class="field">
+          <label for="new_password">Nueva contraseña</label>
+          <input id="new_password" type="password" required minlength="4">
+        </div>
+        <button class="btn block" type="submit">Guardar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

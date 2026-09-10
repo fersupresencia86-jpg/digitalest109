@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi bitácora · T109</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">
+      <span class="code">T109</span>
+      <span class="name">Sala de Digitales</span>
+    </div>
+    <div class="who">
+      <span class="pill" id="whoPill">…</span>
+      <button class="btn-link" id="changePassBtn">Cambiar contraseña</button>
+      <button class="btn-link" id="logoutBtn">Salir</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="sidebar">
+      <div class="area-tag" id="areaTag">…</div>
+      <button class="nav-item active" data-tab="nueva">Nueva actividad</button>
+      <button class="nav-item" data-tab="mias">Mis actividades</button>
+    </div>
+
+    <div class="main">
+      <section id="tab-nueva">
+        <div class="card">
+          <h2>Registrar actividad</h2>
+          <p class="desc">Sube lo que hiciste esta semana: título, descripción, una foto y, si aplica, anexos (PDF, Word, Excel, etc.).</p>
+
+          <div class="error-box" id="formErr"></div>
+          <div class="ok-box" id="formOk">Actividad guardada correctamente.</div>
+
+          <form id="activityForm" enctype="multipart/form-data">
+            <div class="row2">
+              <div class="field">
+                <label for="title">Título de la actividad</label>
+                <input id="title" name="title" required maxlength="120" placeholder="Ej. Calibración de impresora Ender 3">
+              </div>
+              <div class="field">
+                <label for="activity_date">Fecha</label>
+                <input id="activity_date" name="activity_date" type="date" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="description">Descripción</label>
+              <textarea id="description" name="description" required placeholder="Qué hiciste, con qué equipo, resultados, pendientes..."></textarea>
+            </div>
+            <div class="field">
+              <label for="photo">Foto de la actividad</label>
+              <input id="photo" name="photo" type="file" accept="image/*">
+            </div>
+            <div class="field">
+              <label for="attachments">Anexos (opcional, hasta 5 archivos)</label>
+              <input id="attachments" name="attachments" type="file" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.zip,.txt,image/*">
+            </div>
+            <button class="btn" type="submit" id="submitBtn">Guardar actividad</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="tab-mias" style="display:none;">
+        <div class="card">
+          <h2>Mis actividades</h2>
+          <p class="desc">Historial de lo que has registrado, más reciente primero.</p>
+          <div id="misActividades"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Modal cambiar contraseña -->
+  <div class="modal-backdrop" id="pwBackdrop">
+    <div class="modal">
+      <button class="close" id="pwClose">✕</button>
+      <h2>Cambiar contraseña</h2>
+      <div class="error-box" id="pwErr"></div>
+      <div class="ok-box" id="pwOk">Contraseña actualizada.</div>
+      <form id="pwForm">
+        <div class="field">
+          <label for="current_password">Contraseña actual</label>
+          <input id="current_password" type="password" required>
+        </div>
+        <div class="field">
+          <label for="new_password">Nueva contraseña</label>
+          <input id="new_password" type="password" required minlength="4">
+        </div>
+        <button class="btn block" type="submit">Guardar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
